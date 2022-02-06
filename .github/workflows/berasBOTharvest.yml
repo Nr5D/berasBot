@@ -1,0 +1,25 @@
+name: berasBOTharvest
+
+on:
+  schedule:
+    - cron: '0,30 * * * *'  # once every 30 minutes
+
+jobs:
+  pangan-post:
+    runs-on: macOS-latest
+    env:
+      ELEPHANT_SQL_DBNAME: ${{ secrets.ELEPHANT_SQL_DBNAME }}
+      ELEPHANT_SQL_HOST: ${{ secrets.ELEPHANT_SQL_HOST }}
+      ELEPHANT_SQL_USER: ${{ secrets.ELEPHANT_SQL_USER }}
+      ELEPHANT_SQL_PASSWORD: ${{ secrets.ELEPHANT_SQL_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@master
+      - name: Install rvest package
+        run: Rscript -e 'install.packages("rvest", dependencies = TRUE)'
+      - name: Install RPostgreSQL package
+        run: Rscript -e 'install.packages("RPostgreSQL", dependencies = TRUE)'
+      - name: Install tidyr package
+        run: Rscript -e 'install.packages("tidyr", dependencies = TRUE)'
+      - name: Scrapping Data from HargaPangan.ID
+        run: Rscript berasHarvest.R
