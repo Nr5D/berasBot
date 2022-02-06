@@ -48,7 +48,7 @@ status_details <- paste0(
   "👨🏻‍🌾 ",dataSiap$type[4], " : Rp",dataSiap$price[4],",-", "\n",
   "\n",
   "\n",
-  "#",samp_word, "#beras #hargaberas #", paste(gsub(" ", "", namaprov, fixed = TRUE)))
+  "#",samp_word, " #beras #hargaberas #", paste(gsub(" ", "", namaprov, fixed = TRUE)))
 
 
 # Create Time Series Plot
