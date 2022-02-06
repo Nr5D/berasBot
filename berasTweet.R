@@ -29,7 +29,7 @@ dataSiap <- data %>%
 # Hashtag
 
 ## 1st Hashtag
-hashtag <- c("pangan","hargaPangan","hargaPanganIndonesia","hargaHarian","pasarTradisional","pasarModern","pedagangBesar","produsen", "beras",
+hashtag <- c("pangan","hargaPangan","hargaPanganIndonesia","hargaHarian","pasarTradisional","pasarModern","pedagangBesar","produsen",
              "github","rvest","rtweet", "ElephantSQL", "SQL", "bot", "opensource", "ggplot2","PostgreSQL","RPostgreSQL")
 
 samp_word <- sample(hashtag, 1)
@@ -48,7 +48,7 @@ status_details <- paste0(
   "👨🏻‍🌾 ",dataSiap$type[4], " : Rp",dataSiap$price[4],",-", "\n",
   "\n",
   "\n",
-  "#",samp_word, " #", paste(namaprov, collapse = ''))
+  "#",samp_word, "#beras #hargaberas #", paste(gsub(" ", "", namaprov, fixed = TRUE)))
 
 
 # Create Time Series Plot
