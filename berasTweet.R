@@ -40,7 +40,7 @@ namaprov <- dataSiap$provinsi[terpilih]
 # Build the status message (text and price)
 
 status_details <- paste0(
-  dataSiap$date[1],": Harga beras di Provinsi ", dataSiap$provinsi[terpilih],
+  dataSiap$date[1],": Harga beras di Provinsi ", dataSiap$provinsi[1],
   " di :", "\n","\n",
   "⛺ ",dataSiap$type[1], " : Rp",dataSiap$price[1],",-", "\n",
   "🏪 ",dataSiap$type[2], " : Rp",dataSiap$price[2],",-", "\n",
