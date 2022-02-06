@@ -35,7 +35,7 @@ hashtag <- c("pangan","hargaPangan","hargaPanganIndonesia","hargaHarian","pasarT
 samp_word <- sample(hashtag, 1)
 
 ## 2nd Hashtag
-namaprov <- dataSiap$provinsi[terpilih]
+namaprov <- dataSiap$provinsi[1]
 
 # Build the status message (text and price)
 
