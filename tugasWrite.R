@@ -1,9 +1,9 @@
 library(RPostgreSQL)
 
 query <- '
-CREATE TABLE IF NOT EXISTS tugas (
+CREATE TABLE IF NOT EXISTS BLU (
   No integer,
-  Karakter character,
+  Karakter character(1),
   Angka integer,
   PRIMARY KEY (No)
 )
@@ -25,7 +25,7 @@ data <- dbGetQuery(con, query)
 # Memanggil Tabel, untuk membuat Primary Key nya berurutan.
 
 query2 <- '
-SELECT * FROM tugas
+SELECT * FROM "public"."BLU"
 '
 
 data <- dbGetQuery(con, query2)
@@ -33,8 +33,8 @@ baris <- nrow(data)
 
 data <- data.frame(No = (baris+1):(baris+4),
                    Karakter = c("A","B","C","D"),
-                   Angka = round(rnorm(4,1000,10),0))
+                   Angka = as.integer(round(rnorm(4,10,10),0)))
 
-dbWriteTable(conn = con, name = "tugas", value = data, append = TRUE, row.names = FALSE, overwrite=FALSE)
+dbWriteTable(conn = con, name = "BLU", value = data, append = TRUE, row.names = FALSE, overwrite=FALSE)
 
 on.exit(dbDisconnect(con)) 
